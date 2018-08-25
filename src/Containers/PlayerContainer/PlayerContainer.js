@@ -26,9 +26,4 @@ const mapStateToProps = (state) => ({
   players: state.players
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  addToTeam: player => dispatch(addPlayerToTeam(player)),
-  deletePlayer: id => dispatch(deletePlayer(id))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerContainer);
+export default connect(mapStateToProps)(PlayerContainer);

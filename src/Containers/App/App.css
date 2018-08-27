@@ -20,7 +20,8 @@
   font-size: 2em;
 }
 
-.save-btn {
+.save-team-btn,
+.save-draft-btn {
   height: 40px;
   width: 120px;
 

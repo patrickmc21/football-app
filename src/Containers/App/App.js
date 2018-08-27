@@ -26,16 +26,32 @@ class App extends Component {
     }
   }
 
+  saveDraftResults = () => {
+    const { picked } = this.props;
+
+    if (picked.length === 14 * 16) {
+      const savedDraft = JSON.stringify(picked);
+      localStorage.setItem(`${Date.now()}-draft`, savedDraft);
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Draft Day</h1>
-          <button 
-            className="save-btn"
-            onClick={this.saveTeamData}>
-            Save Team
-          </button>
+          <div className="btn-container">
+            <button 
+              className="save-team-btn"
+              onClick={this.saveTeamData}>
+              Save Team
+            </button>
+            <button 
+              className="save-draft-btn"
+              onClick={this.saveDraftResults}>
+              Save Draft
+            </button>
+          </div>
         </header>
         <main>
           <div className="main-overlay">

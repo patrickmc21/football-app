@@ -2,9 +2,34 @@
   width: 50%;
 }
 
+.player-section h2,
+.player-section h3 {
+  color: #F7FBFE;
+}
+
 .player-list {
   height: 90vh;
-  max-height: 662px;
+  max-height: 644px;
 
   overflow: scroll;
+}
+
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+}
+
+.filter-form div {
+  display: flex;
+  justify-content: space-around;
+
+  width: 60%;
+}
+
+.filter-form label {
+  color: #F7FBFE;
 }

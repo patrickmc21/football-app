@@ -8,28 +8,32 @@ import './PlayerCard.css';
 class PlayerCard extends Component {
 
   handleAdd = () => {
-    const { player } = this.props;
+    const { player, pick, round } = this.props;
+    player.pick = pick;
+    player.round = round;
     this.props.addToTeam(player);
     this.props.deletePlayer(player.rank);
+    this.props.handlePicks();
   }
 
   handleRemove = () => {
     const { player } = this.props;
     this.props.deletePlayer(player.rank);
+    this.props.handlePicks();
   }
 
   render() {
-    const { player } = this.props;
+    const { player, classType } = this.props;
     return (
-      <article>
+      <li className={classType % 2 === 0 ? "playerCard even" : "playerCard odd"}>
         <p>{player.rank}</p>
         <p>{player.name}</p>
         <p>{player.position}</p>
         <p>{player.posRank}</p>
         <p>{player.team}</p>
-        <button onClick={this.handleAdd}>Add</button>
-        <button onClick={this.handleRemove}>Remove</button>
-      </article>
+        <button  className="add-btn" onClick={this.handleAdd}>+</button>
+        <button className="remove-btn" onClick={this.handleRemove}>X</button>
+      </li>
     ) 
   }
 }

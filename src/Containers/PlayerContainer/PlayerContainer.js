@@ -1,21 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addPlayerToTeam } from '../../Actions/team';
-import { deletePlayer } from '../../Actions/players';
 import PlayerCard from '../PlayerCard/PlayerCard';
 
 
 import './PlayerContainer.css';
 
 class PlayerContainer extends Component {
+  constructor() {
+    super();
+    this.state = {
+      pick: 1,
+      round: 1
+    }
+  }
+
+  handlePicks = () => {
+    if (this.state.pick < 14) {
+      console.log('in')
+      const pick = this.state.pick + 1;
+      this.setState({ pick });
+    } else {
+      const pick = 1;
+      const round = this.state.round + 1;
+      this.setState({ pick, round});
+    }
+  }
 
   render() {
-    const playerCards = this.props.players.map(player => {
-      return <PlayerCard key={player.rank} player={player} />
+    const { pick, round } = this.state;
+    const playerCards = this.props.players.map((player, i) => {
+      return <PlayerCard key={player.rank} player={player} pick={pick} round={round} handlePicks={this.handlePicks} classType={i}/>
      })
     return (
-      <section>
-        {playerCards}
+      <section className="player-section">
+        <ul className="player-list">
+          {playerCards}
+        </ul>
       </section>
     )
   }

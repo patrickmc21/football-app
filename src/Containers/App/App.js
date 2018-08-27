@@ -12,23 +12,48 @@ class App extends Component {
     this.props.addPlayers(playerData);
   }
 
+  saveTeamData = () => {
+    const { team } = this.props;
+    let readyToSave = true;
+    Object.keys(team).forEach(player => {
+      if (!team[player]) {
+        readyToSave = false;
+      }
+    });
+    if (readyToSave) {
+      const savedTeam = JSON.stringify(team);
+      localStorage.setItem(`${Date.now()}-team`, savedTeam);      
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Draft Day</h1>
+          <button 
+            className="save-btn"
+            onClick={this.saveTeamData}>
+            Save Team
+          </button>
         </header>
         <main>
-          <PlayerContainer />
-          <TeamContainer />
+          <div className="main-overlay">
+            <PlayerContainer />
+            <TeamContainer />
+          </div>
         </main>
       </div>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  team: state.team
+});
+
 const mapDispatchToProps = (dispatch) => ({
   addPlayers: players => dispatch(addPlayers(players))
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

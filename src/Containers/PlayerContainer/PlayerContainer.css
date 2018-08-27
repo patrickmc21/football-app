@@ -1,0 +1,10 @@
+.player-section {
+  width: 50%;
+}
+
+.player-list {
+  height: 90vh;
+  max-height: 662px;
+
+  overflow: scroll;
+}

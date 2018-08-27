@@ -26,11 +26,11 @@ const teamReducer = (state = teamModel, action) => {
       switch (player.position) {
         case 'QB':
           if (!newState.QB) {
-              newState.QB = player.name;
+              newState.QB = {name: player.name, round: player.round, pick: player.pick};
             } else {
               for (let i = 0; i < benchArray.length; i++) {
                 if (!newState[benchArray[i]]) {
-                  newState[benchArray[i]] = player.name;
+                  newState[benchArray[i]] = {name: player.name, round: player.round, pick: player.pick};
                   i = benchArray.length;
                 }
               }; 
@@ -38,15 +38,15 @@ const teamReducer = (state = teamModel, action) => {
             break;
         case 'RB':
           if (!newState.RB1) {
-              newState.RB1 = player.name;
+              newState.RB1 = {name: player.name, round: player.round, pick: player.pick};
             } else if (!newState.RB2) {
-              newState.RB2 = player.name;
+              newState.RB2 = {name: player.name, round: player.round, pick: player.pick};
             } else if (!newState.FLEX) {
-              newState.FLEX = player.name;
+              newState.FLEX = {name: player.name, round: player.round, pick: player.pick};
             } else {
               for (let i = 0; i < benchArray.length; i++) {
                 if (!newState[benchArray[i]]) {
-                  newState[benchArray[i]] = player.name;
+                  newState[benchArray[i]] = {name: player.name, round: player.round, pick: player.pick};
                   i = benchArray.length;
                 }
               }; 
@@ -54,15 +54,15 @@ const teamReducer = (state = teamModel, action) => {
             break;
         case 'WR':
           if (!newState.WR1) {
-              newState.WR1 = player.name;
+              newState.WR1 = {name: player.name, round: player.round, pick: player.pick};
             } else if (!newState.WR2) {
-              newState.WR2 = player.name;
+              newState.WR2 = {name: player.name, round: player.round, pick: player.pick};
             } else if (!newState.FLEX) {
-              newState.FLEX = player.name;
+              newState.FLEX = {name: player.name, round: player.round, pick: player.pick};
             } else {
               for (let i = 0; i < benchArray.length; i++) {
                 if (!newState[benchArray[i]]) {
-                  newState[benchArray[i]] = player.name;
+                  newState[benchArray[i]] = {name: player.name, round: player.round, pick: player.pick};
                   i = benchArray.length;
                 }
               }; 
@@ -70,13 +70,13 @@ const teamReducer = (state = teamModel, action) => {
             break;
         case 'TE':
           if (!newState.TE) {
-              newState.TE = player.name;
+              newState.TE = {name: player.name, round: player.round, pick: player.pick};
             } else if (!newState.FLEX) {
-              newState.FLEX = player.name;
+              newState.FLEX = {name: player.name, round: player.round, pick: player.pick};
             } else {
               for (let i = 0; i < benchArray.length; i++) {
                 if (!newState[benchArray[i]]) {
-                  newState[benchArray[i]] = player.name;
+                  newState[benchArray[i]] = {name: player.name, round: player.round, pick: player.pick};
                   i = benchArray.length;
                 }
               }; 
@@ -84,11 +84,11 @@ const teamReducer = (state = teamModel, action) => {
             break;
         case 'DST':
           if (!newState.DST) {
-              newState.DST = player.name;
+              newState.DST = {name: player.name, round: player.round, pick: player.pick};
             } else {
               for (let i = 0; i < benchArray.length; i++) {
                 if (!newState[benchArray[i]]) {
-                  newState[benchArray[i]] = player.name;
+                  newState[benchArray[i]] = {name: player.name, round: player.round, pick: player.pick};
                   i = benchArray.length;
                 }
               }; 
@@ -96,11 +96,11 @@ const teamReducer = (state = teamModel, action) => {
             break;
         case 'K':
           if (!newState.K) {
-            newState.K = player.name;
+            newState.K = {name: player.name, round: player.round, pick: player.pick};
           } else {
             for (let i = 0; i < benchArray.length; i++) {
               if (!newState[benchArray[i]]) {
-                newState[benchArray[i]] = player.name;
+                newState[benchArray[i]] = {name: player.name, round: player.round, pick: player.pick};
                 i = benchArray.length;
               }
             }; 

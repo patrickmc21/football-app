@@ -1,0 +1,44 @@
+.playerCard {
+  display: grid;
+  grid-template-columns: 10% 40% 10% 10% 10% 10% 10%;
+
+  padding: 10px 0 0 10px;
+
+  height: 40px;
+  width: 100%;
+
+  color: #F7FBFE;
+  box-sizing: border-box;
+}
+
+.even {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.odd {
+  background-color: rgba(0, 40, 91, 0.7);
+}
+
+.add-btn,
+.remove-btn {
+  height: 25px;
+  width: 40%;
+
+  background-color: transparent;
+  border-radius: 50%;
+  color: #F7FBFE;
+}
+
+.add-btn {
+  font-size: 16px;
+}
+
+.add-btn:hover {
+  border-color: #1C9525;
+  color: #1C9525;
+}
+
+.remove-btn:hover {
+  border-color: #C70039;
+  color: #C70039;
+}

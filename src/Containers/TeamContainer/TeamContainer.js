@@ -6,61 +6,22 @@ import './TeamContainer.css';
 class TeamContainer extends Component {
   render() {
     const { team } = this.props;
+    const players = Object.keys(team).map((player, i) => {
+      return (
+        <li key={i}>
+          <p>{player}: {team[player] ? team[player].name : "empty"}</p>
+          {team[player] && <p>Round: {team[player] ? team[player].round : ""}</p>}
+          {team[player] && <p>Pick: {team[player] ? team[player].pick : ""}</p>}
+        </li>
+      )
+    });
     return (
-      <section>
-        <article>
-          <div>
-            <ul>
-              <li>
-                QB: {team.QB || "empty"}
-              </li>
-              <li>
-                RB: {team.RB1 || "empty"}
-              </li>
-              <li>
-                RB: {team.RB2 || "empty"}
-              </li>
-              <li>
-                WR: {team.WR2 || "empty"}
-              </li>
-              <li>
-                WR: {team.WR2 || "empty"}
-              </li>
-              <li>
-                TE: {team.TE || "empty"}
-              </li>
-              <li>
-                FLEX: {team.FLEX || "empty"}
-              </li>
-              <li>
-                DST: {team.DST || "empty"}
-              </li>
-              <li>
-                K: {team.K || "empty"}
-              </li>
-              <li>
-                BE: {team.BE1 || "empty"}
-              </li>
-              <li>
-                BE: {team.BE2 || "empty"}
-              </li>
-              <li>
-                BE: {team.BE3 || "empty"}
-              </li>
-              <li>
-                BE: {team.BE4 || "empty"}
-              </li>
-              <li>
-                BE: {team.BE5 || "empty"}
-              </li>
-              <li>
-                BE: {team.BE6 || "empty"}
-              </li>
-              <li>
-                BE: {team.BE7 || "empty"}
-              </li>
+      <section className="team-container">
+        <article className="team-wrapper">
+            <h2>My team:</h2>
+            <ul className="team-list">
+              {players}
             </ul>
-          </div>
         </article>
       </section>
     )

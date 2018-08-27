@@ -1,0 +1,45 @@
+.team-container {
+  height: 90vh;
+  max-height: 700px;
+  width: 50%;
+}
+
+.team-wrapper {
+  padding: 20px 0 0 100px;
+
+  height: 90vh;
+  max-height: 700px;
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+}
+
+.team-wrapper h2 {
+  margin-bottom: 30px;
+
+  color: #F7FBFE;
+  font-size: 28px;
+}
+
+.team-list {
+  padding-left: 20px;
+
+  width: 100%;
+}
+
+.team-list li {
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+
+  height: 35px;
+  width: 100%;
+}
+
+.team-list li p {
+  color: #F7FBFE;
+  font-size: 20px;
+}
+
+
+

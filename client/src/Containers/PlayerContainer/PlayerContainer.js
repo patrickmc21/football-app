@@ -27,7 +27,7 @@ class PlayerContainer extends Component {
       owners: [
         'MT',
         'Ben',
-        'Seth',
+        'Marc',
         'Willemyns',
         'Himbo',
         'Willy',
@@ -44,8 +44,26 @@ class PlayerContainer extends Component {
   }
 
   handlePicks = () => {
+    if (this.state.pick === 1 && this.state.round > 1 && this.state.round < 17) {
+      const url = 'http://localhost:3000/round';
+      const body = {
+        round: this.state.round,
+        picks: this.props.picked.slice(-14)
+      };
+      const options = {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+          'content-type': 'application/json'
+        }
+      };
+      try {
+        fetch(url, options)
+      } catch (err) {
+        console.log(err);
+      }
+    }
     if (this.state.pick < 14) {
-      console.log('in')
       const pick = this.state.pick + 1;
       this.setState({ pick });
     } else {
@@ -320,9 +338,15 @@ class PlayerContainer extends Component {
             </select>
           </div>
         </form>
-        <ul className="player-list">
-          {playerCards}
-        </ul>
+        {round < 17 &&
+          <ul className="player-list">
+            {playerCards}
+          </ul>
+        }
+        {
+          round === 17 &&
+          <h2>Draft Over!</h2>
+        }
       </section>
     )
   }

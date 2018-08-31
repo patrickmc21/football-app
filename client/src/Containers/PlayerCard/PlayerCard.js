@@ -10,23 +10,27 @@ class PlayerCard extends Component {
 
   handleAdd = () => {
     const { player, pick, round, currentOwner } = this.props;
-    player.pick = pick;
-    player.round = round;
-    player.owner = currentOwner;
-    this.props.addToTeam(player);
-    this.props.addPick(player);
-    this.props.deletePlayer(player.rank);
-    this.props.handlePicks();
+    if (currentOwner === 'Pat') {
+      player.pick = pick;
+      player.round = round;
+      player.owner = currentOwner;
+      this.props.addToTeam(player);
+      this.props.addPick(player);
+      this.props.deletePlayer(player.rank);
+      this.props.handlePicks();
+    }
   }
 
   handleRemove = () => {
     const { player, pick, round, currentOwner } = this.props;
-    player.pick = pick;
-    player.round = round;
-    player.owner = currentOwner;
-    this.props.addPick(player);
-    this.props.deletePlayer(player.rank);
-    this.props.handlePicks();
+    if (currentOwner !== 'Pat') {
+      player.pick = pick;
+      player.round = round;
+      player.owner = currentOwner;
+      this.props.addPick(player);
+      this.props.deletePlayer(player.rank);
+      this.props.handlePicks();
+    }
   }
 
   render() {

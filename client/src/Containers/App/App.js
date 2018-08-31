@@ -22,7 +22,22 @@ class App extends Component {
     });
     if (readyToSave) {
       const savedTeam = JSON.stringify(team);
-      localStorage.setItem(`${Date.now()}-team`, savedTeam);      
+      localStorage.setItem(`${Date.now()}-team`, savedTeam);
+      const url = 'http://localhost:3000/team';
+      const options = {
+        method: 'POST',
+        body: savedTeam,
+        headers: {
+          'content-type': 'application/json'
+        }
+      }
+
+      try {
+        fetch(url, options);
+      } catch (err) {
+        console.log(err);
+      }
+ 
     }
   }
 
@@ -32,6 +47,20 @@ class App extends Component {
     if (picked.length === 14 * 16) {
       const savedDraft = JSON.stringify(picked);
       localStorage.setItem(`${Date.now()}-draft`, savedDraft);
+      const url = 'http://localhost:3000/draft';
+      const options = {
+        method: 'POST',
+        body: savedDraft,
+        headers: {
+          'content-type': 'application/json'
+        }
+      }
+
+      try {
+        fetch(url, options);
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 
@@ -65,7 +94,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  team: state.team
+  team: state.team,
+  picked: state.picked
 });
 
 const mapDispatchToProps = (dispatch) => ({
